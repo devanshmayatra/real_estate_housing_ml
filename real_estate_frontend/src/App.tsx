@@ -84,7 +84,7 @@ const App: React.FC = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const response = await axios.post<PredictionResponse>('http://127.0.0.1:10000/predict', formData);
+      const response = await axios.post<PredictionResponse>('https://real-estate-housing-ml.onrender.com/predict', formData);
       setPrediction(response.data);
     } catch (error) {
       console.error(error);
