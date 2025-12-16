@@ -27,6 +27,14 @@ def predict_price(data: dict):
     tier_idx = brain['classifier'].predict(X_scaled)[0]
     tier_label = brain['le_tier'].inverse_transform([tier_idx])[0]
     
+    print(
+        {
+        "predicted_price": price,
+        "tier": tier_label,
+        "cluster_id": int(input_df['Location_Cluster'][0])
+    }
+    )
+    
     return {
         "predicted_price": price,
         "tier": tier_label,

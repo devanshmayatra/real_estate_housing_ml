@@ -8,7 +8,7 @@ app = FastAPI(title="Real Estate Titan API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Change this to your frontend URL in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -16,6 +16,7 @@ app.add_middleware(
 
 @app.post("/predict", response_model=PredictionOutput)
 def predict(data: HouseInput):
+    print('Prediction Started')
     return predict_price(data.dict())
 
 # Render requires this to start
